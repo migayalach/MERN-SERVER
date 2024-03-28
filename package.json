@@ -7,7 +7,8 @@
     "build": "npx tsc",
     "start": "node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist\"",
-    "test": "jest"
+    "test": "jest", 
+    "serve:coverege": "npm run test && cd coverage/lcov-report && npx serve"
   },
   "keywords": [
     "node",
@@ -35,8 +36,10 @@
     "eslint-plugin-promise": "^6.1.1",
     "jest": "^29.7.0",
     "nodemon": "^3.1.0",
+    "serve": "^14.2.1",
     "supertest": "^6.3.4",
     "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.3",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
