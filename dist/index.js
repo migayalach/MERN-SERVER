@@ -3,20 +3,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
+// *Enveiroment Variables
 const dotenv_1 = __importDefault(require("dotenv"));
-// Configuration the .env file
+const server_1 = __importDefault(require("./src/server"));
+const logger_1 = require("./src/utils/logger");
+// *Configuration the .env file
 dotenv_1.default.config();
-// Create Express APP
-const app = (0, express_1.default)();
-const PORT = process.env.PORT || 8000;
-// Define the first Route APP
-app.get("/", (request, response) => {
-    // Send Hello word
-    response.send("Holis");
+const port = process.env.PORT || 8000;
+// *Execute Server
+server_1.default.listen(port, () => {
+    (0, logger_1.LogSuccess)(`[SERVER ON]: Running in http://localhost:${port}/api`);
 });
-// Execute APP and Listen Request to PORT
-app.listen(PORT, () => {
-    console.log("Express server running at line");
+// *Control SERVER ERROR
+server_1.default.on("error", (error) => {
+    (0, logger_1.LogError)(`[SERVER ERROR]: ${error}`);
 });
 //# sourceMappingURL=index.js.map
