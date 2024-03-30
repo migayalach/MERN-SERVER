@@ -1,0 +1,76 @@
+{
+	"openapi": "3.0.0",
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"BasicResponse": {
+				"properties": {
+					"message": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"message"
+				],
+				"type": "object",
+				"description": "Basic JSON response fot Controllers"
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "mern",
+		"version": "1.0.0",
+		"description": "MI PRIMER MERN",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {
+			"name": "XD"
+		}
+	},
+	"paths": {
+		"/api/hello": {
+			"get": {
+				"operationId": "GetMessage",
+				"responses": {
+					"200": {
+						"description": "Promise of Basicresponse",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BasicResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "EndPoint to retreive a Message \"Hello {name}\" in JSON",
+				"tags": [
+					"HelloController"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "Name of user to be greeted",
+						"in": "query",
+						"name": "name",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
