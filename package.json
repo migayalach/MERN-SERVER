@@ -4,11 +4,12 @@
   "description": "MI PRIMER MERN",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
-    "start": "node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist\"",
     "test": "jest",
-    "serve:coverege": "npm run test && cd coverage/lcov-report && npx serve"
+    "serve:coverege": "npm run test && cd coverage/lcov-report && npx serve",
+    "build": "npx webpack --mode development",
+    "start": "node dist/index.js",
+    "build:prod": "npx webpack --mode production"
   },
   "keywords": [
     "node",
@@ -25,7 +26,10 @@
     "express": "^4.19.2",
     "helmet": "^7.1.0",
     "mongoose": "^8.2.4",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0",
+    "tsoa": "^6.2.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
@@ -33,6 +37,8 @@
     "@types/jest": "^29.5.12",
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.11.30",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.6",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
@@ -45,6 +51,7 @@
     "serve": "^14.2.1",
     "supertest": "^6.3.4",
     "ts-jest": "^29.1.2",
+    "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3",
     "webpack": "^5.91.0",
